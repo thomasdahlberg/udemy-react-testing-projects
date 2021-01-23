@@ -78,8 +78,7 @@ test("decrement error clears after increment click", () => {
   const decButton = findByTestAttr(wrapper, "decrement-button");
   const incButton = findByTestAttr(wrapper, "increment-button");
   decButton.simulate('click');
-  const errorMsg = findByTestAttr(wrapper, "error-message");
-  expect(errorMsg.length).toBe(1);
   incButton.simulate('click');
-  expect(errorMsg.length).toBe(0);
+  const errorMsg = findByTestAttr(wrapper, "error-message").text();
+  expect(errorMsg).toBe(null);
 })
